@@ -1,4 +1,5 @@
-# 1
+# Please find each coding answer inside the main class with the challenge name
+# Question 1
 Design a custom Word Dictionary that provides definitions about the words. Users should be able to lookup
 specific words and find their corresponding definitions, add/remove words with definitions and search words
 partially.
@@ -43,7 +44,7 @@ number of words in the dictionary. The same applies to getting definitions and p
 O (1) if we design scalable approach and resize our array due to the hash function implementation, at the end the worst case is O(n).
 • The space complexity is equal to the number of words in the dictionary. The time spent on this solution was approximately 15 to 20 minutes.
 
-# 2
+# Question 2
 You have been provided the “Robot” and “Main” classes below. Using these classes, you have been tasked
 with writing an algorithm to guide a robot through a maze. An example of a possible maze configuration is
 provided below. You are not permitted to alter the “Robot” class, and can only add code to the main()
@@ -99,7 +100,7 @@ Inserting, removing and accessing the head of the stack and queue are O (1).
 • The space complexity is the size of the stack, which at worst is all places on the board. The queue, storing at most 3 values, has a space complexity of
 O (1). The time spent on the robot's approach was the longest, approximately 35 to 40 minutes.
 
-# 3
+# Question 3
 The following program prints,
 a) “Happy Face” text when you feed a child with “Ice Cream” and
 b) “Angry Face” text when you feed a child with “Salad” and
