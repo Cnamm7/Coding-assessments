@@ -1,0 +1,5 @@
+# Title: Convex Hull Challenge
+according to wikipedia: "In geometry, the convex hull or convex envelope or convex closure of a shape is the smallest convex set that contains it. The convex hull may be defined either as the intersection of all convex sets containing a given subset of a Euclidean space, or equivalently as the set of all convex combinations of points in the subset. For a bounded subset of the plane, the convex hull may be visualized as the shape enclosed by a rubber band stretched around the subset."
+
+# Solutin: I used Graham's Scan with time complexity of O (nlog(n))
+I tried to solve this challenge based on the graham's scan rules and by ordering the points in counterclockwise way and traversing through them and check each three consecutive points based on this function check whether the three points are clockwise or not, by computing the z-coordinate of the cross product of the two vectors ab and ac and remove the points that are in clockwise way or have positive z-coordinate.
