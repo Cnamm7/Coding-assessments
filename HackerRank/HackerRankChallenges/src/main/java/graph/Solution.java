@@ -88,8 +88,36 @@ public class Solution {
     private static void traverseDFSInGraphAndAddProbabilities(Graph board, List<Integer> probabilties, String startPoint) {
         Set<Vertex> seen = new HashSet<>();
         Vertex traversVertex = board.getVertex(startPoint);
-        seen.add(traversVertex);
-        traverseDFSInGraphAndAddPrababilities(board, probabilties, startPoint, seen, traversVertex);
+        //seen.add(traversVertex);
+        //traverseDFSInGraphAndAddPrababilities(board, probabilties, startPoint, seen, traversVertex);
+        Stack<Vertex> DFSStack = new Stack<>();
+        DFSStack.push(traversVertex);
+        while (DFSStack.size() > 0) {
+            Vertex current = DFSStack.pop();
+            if (!seen.contains(current)) {
+                if (isReachable(current, board) && current.isExit) {
+                    probabilties.set(1, probabilties.get(1) + 1);
+                } else if (isReachable(current, board) && (current.isBombed || (board.adjMap.get(current).size() == 1 && seen.containsAll(board.adjMap.get(current))) || seen.containsAll(board.adjMap.get(current)))) {
+                    probabilties.set(0, probabilties.get(0) + 1);
+                }
+                seen.add(current);
+            }
+
+            for (Vertex child : board.adjMap.get(current)) {
+                if (!seen.contains(child) && !current.isBombed && !current.isExit) {
+                    DFSStack.push(child);
+                }
+            }
+        }
+    }
+
+    private static boolean isReachable(Vertex current, Graph board) {
+        for (Vertex child : board.adjMap.get(current)) {
+            if (!child.isExit && !child.isBombed) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private static void traverseDFSInGraphAndAddPrababilities(Graph board, List<Integer> probabilties, String startPoint, Set<Vertex> seen, Vertex traversVertex) {
